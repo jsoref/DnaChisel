@@ -17,7 +17,7 @@ class EnforcePatternOccurrence(Specification):
     """Enforce a number of occurrences of the given pattern in the sequence.
 
     Shorthand for annotations: "insert" (although this specification can be
-    used to both insert new occurrences of a pattern, or destroy surnumerary
+    used to both insert new occurrences of a pattern, or destroy supernumerary
     patterns)
 
     Parameters
