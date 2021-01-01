@@ -6,7 +6,7 @@ from dnachisel import (
     DnaOptimizationProblem,
     random_dna_sequence,
     Location,
-    EnforcePatternOccurence,
+    EnforcePatternOccurrence,
 )
 import dnachisel as dc
 import numpy
@@ -20,15 +20,15 @@ def test_enforce_pattern_basics():
     numpy.random.seed(123)
     for seed in [2, 3, 123456]:
         # The seeds cover various cases:
-        # 2: the problem has no occurences instead of 1 wanted
-        # 3: the pattern has no occurences instead of 1 wanted
+        # 2: the problem has no occurrences instead of 1 wanted
+        # 3: the pattern has no occurrences instead of 1 wanted
         # 123456: the pattern is over-represented (4 times instead of 1)
         sequence = random_dna_sequence(5000, seed=seed)
 
         constraints = [
             EnforceTranslation(location=Location(1000, 2500)),
             EnforceTranslation(location=Location(3000, 4500)),
-            EnforcePatternOccurence(
+            EnforcePatternOccurrence(
                 "ANANANANTT", location=Location(1100, 2150)
             ),
         ]
@@ -62,7 +62,7 @@ def test_insert_and_erase_pattern():
     problem = dc.DnaOptimizationProblem(
         sequence=sequence,
         constraints=[
-            dc.EnforcePatternOccurence(pattern, occurences=5),
+            dc.EnforcePatternOccurrence(pattern, occurrences=5),
             dc.EnforceTranslation(),
         ],
         logger=None,
@@ -77,7 +77,7 @@ def test_insert_and_erase_pattern():
     problem = dc.DnaOptimizationProblem(
         sequence=sequence,
         constraints=[
-            dc.EnforcePatternOccurence(pattern, occurences=2),
+            dc.EnforcePatternOccurrence(pattern, occurrences=2),
             dc.EnforceTranslation(),
         ],
         logger=None,

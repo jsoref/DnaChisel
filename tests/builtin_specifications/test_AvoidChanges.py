@@ -7,7 +7,7 @@ from dnachisel import (
     random_dna_sequence,
     AvoidChanges,
     AvoidPattern,
-    EnforcePatternOccurence,
+    EnforcePatternOccurrence,
     sequences_differences,
     EnforceGCContent,
     EnforceChanges,
@@ -115,8 +115,8 @@ def test_AvoidChanges_with_max_edits():
         constraints=[
             AvoidChanges(max_edits=2),
             AvoidPattern("ATATA"),
-            EnforcePatternOccurence("A", occurences=6, location=(0, 11, 1)),
-            EnforcePatternOccurence("T", occurences=4, location=(0, 11, 1)),
+            EnforcePatternOccurrence("A", occurrences=6, location=(0, 11, 1)),
+            EnforcePatternOccurrence("T", occurrences=4, location=(0, 11, 1)),
         ],
         logger=None,
     )

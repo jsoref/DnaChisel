@@ -56,7 +56,7 @@ class AvoidPattern(Specification):
         self.boost = boost
 
     def evaluate(self, problem):
-        """Return score=-number_of_occurences. And patterns locations."""
+        """Return score=-number_of_occurrences. And patterns locations."""
         locations = self.pattern.find_matches(problem.sequence, self.location)
         score = -len(locations)
         if score == 0:

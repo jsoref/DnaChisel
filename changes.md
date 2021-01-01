@@ -5,7 +5,7 @@
 **API-breaking changes:**
 
 - The strand on which to look for a pattern in AvoidPattern and
-  EnforcePatternOccurence is not given by the location (strand 1, -1, or strand
+  EnforcePatternOccurrence is not given by the location (strand 1, -1, or strand
   0 to look in both strands).
 - AvoidNonUniqueSegments renamed in UniquifyKmers
 - Complete rewrite of CodonOptimization, method names are now use_best_codon,

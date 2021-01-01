@@ -8,7 +8,7 @@ This example explores different variations of a problem where a gene is optimize
 
 - ``unique_kmers(20)`` ensures that no k-mer of size 20 or more have homologies elsewhere in the sequence (the negative score is the number of non-unique k-mers)
 - ``~gc(39%/100bp)`` is an objective targeting 39% GC on every 100bp window (the negative score is the sum of all absolute deviations from 39% on all 100bp windows)
-- ``~no(CG)`` seeks to minimize the occurences of "CG" in the sequence (the negative score is the number of CG patterns in the sequence).
+- ``~no(CG)`` seeks to minimize the occurrences of "CG" in the sequence (the negative score is the number of CG patterns in the sequence).
 - ``~codon_optimize`` seeks to maximize the CAI gene's CAI for *E. coli* (the negative score is the sum of each codon's deviation from its optimal relative frequency).
 - ``~keep`` is an objective fostering parcimony in sequence changes by penalizing differences (the negative score is the number of changes in the sequence).
 
