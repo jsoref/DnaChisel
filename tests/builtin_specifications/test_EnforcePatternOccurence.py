@@ -46,7 +46,7 @@ def test_insert_and_erase_pattern():
     protein = dc.random_protein_sequence(100)
     pattern = "ATGC"
 
-    # CREATE A SEQUENCE WITH 0 PATTERN OCCURENCES
+    # CREATE A SEQUENCE WITH 0 PATTERN OCCURRENCES
 
     sequence = dc.random_compatible_dna_sequence(
         sequence_length=300,
@@ -57,7 +57,7 @@ def test_insert_and_erase_pattern():
         logger=None,
     )
 
-    # NOW INCREASE PATTERN OCCURENCES FROM 0 TO 5
+    # NOW INCREASE PATTERN OCCURRENCES FROM 0 TO 5
 
     problem = dc.DnaOptimizationProblem(
         sequence=sequence,
@@ -72,7 +72,7 @@ def test_insert_and_erase_pattern():
     assert problem.all_constraints_pass()
     sequence = problem.sequence
 
-    # NOW DECREASE THE NUMBER OF OCCURENCES FROM 5 TO 2
+    # NOW DECREASE THE NUMBER OF OCCURRENCES FROM 5 TO 2
 
     problem = dc.DnaOptimizationProblem(
         sequence=sequence,
