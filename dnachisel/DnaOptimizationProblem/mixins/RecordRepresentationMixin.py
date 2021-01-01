@@ -51,7 +51,7 @@ class RecordRepresentationMixin:
         # unfortunately the local import below is the most elegant found so
         # far. builtin_specifications cannot be imported at the top of this
         # file as some built-in specifications use DnaOptimizationProblem
-        # internally to resolve constructs (see EnforcePatternOccurences)
+        # internally to resolve constructs (see EnforcePatternOccurrences)
         if isinstance(record, str):
             record = load_record(record)
         parameters = dict(

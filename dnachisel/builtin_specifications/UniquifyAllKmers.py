@@ -74,7 +74,7 @@ class UniquifyAllKmers(Specification):
     >>> --------- Sequence --------------------------
 
     This Specification class specifies that "No sub-sequence in L of length
-    above k has more than 1 occurence in L*".
+    above k has more than 1 occurrence in L*".
 
     Some specific cases
 
@@ -208,7 +208,7 @@ class UniquifyAllKmers(Specification):
             problem,
             score=-len(nonunique_locations),
             locations=nonunique_locations,
-            message="Failed, the following positions are the first occurences"
+            message="Failed, the following positions are the first occurrences"
             "of local non-unique segments %s" % nonunique_locations,
         )
 
@@ -256,7 +256,7 @@ class UniquifyAllKmers(Specification):
             problem,
             score=-len(locations),
             locations=locations,
-            message="Failed, the following positions are the first occurences "
+            message="Failed, the following positions are the first occurrences "
             "of non-unique segments %s" % locations,
         )
 

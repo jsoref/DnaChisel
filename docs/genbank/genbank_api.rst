@@ -79,7 +79,7 @@ below forbids any TAA sequence following an ATG sequence.
 
 Finally, note that you can also use ``no()`` as an objective by prefixing it
 with a tilde ``~no()``, at which case the pattern may not be completely
-eliminated, but its number of occurences will be minimized by the algorithm:
+eliminated, but its number of occurrences will be minimized by the algorithm:
 
 .. raw:: html
 
@@ -129,15 +129,15 @@ Pattern insertion
 -----------------
 
 You can control how many times a pattern should appear in a sequence region
-with the ``@insert()`` specification (short form of ``@EnforcePatternOccurence``):
+with the ``@insert()`` specification (short form of ``@EnforcePatternOccurrence``):
 
 .. raw:: html
 
     <img class='annotation-example'
     src='../_static/images/genbank_annotations/insert.png'></img>
 
-By default ``@insert()`` ensures that exactly one occurence of the pattern is
-present in the given region, but it can also be used to create more occurences:
+By default ``@insert()`` ensures that exactly one occurrence of the pattern is
+present in the given region, but it can also be used to create more occurrences:
 
 .. raw:: html
 
@@ -145,8 +145,8 @@ present in the given region, but it can also be used to create more occurences:
     src='../_static/images/genbank_annotations/insert_several.png'></img>
 
 This specification can be used both to create new patterns in a region that
-contains too few, or to decrease the pattern occurences i a region that contains
-too many. Note that with the current algorithm, new occurences of the pattern
+contains too few, or to decrease the pattern occurrences i a region that contains
+too many. Note that with the current algorithm, new occurrences of the pattern
 will be be preferentially placed towards the center of the selected region.
 
 You can also enforce a sequence (or degenerate sequence) at an exact location

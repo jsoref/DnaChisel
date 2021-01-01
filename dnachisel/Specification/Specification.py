@@ -195,7 +195,7 @@ class Specification(FeatureRepresentationMixin):
     def label_parameters(self):
         """In subclasses, returns a list of the creation parameters.
 
-        For instance [('pattern', 'ATT'), ('occurences', 2)]
+        For instance [('pattern', 'ATT'), ('occurrences', 2)]
         """
         return []
 

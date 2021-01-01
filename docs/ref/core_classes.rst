@@ -51,7 +51,7 @@ MutationSpace
 SequencePattern
 -----------------------
 
-Specifications ``AvoidPattern``, ``EnforcePatternOccurence`` accept a Pattern
+Specifications ``AvoidPattern``, ``EnforcePatternOccurrence`` accept a Pattern
 as argument. The pattern can be provided either as a string or as a class:
 
 ================== ================================= ====================

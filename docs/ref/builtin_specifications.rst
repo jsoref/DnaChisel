@@ -24,7 +24,7 @@ Summary
     HarmonizeRCA
     EnforceGCContent
     EnforceMeltingTemperature
-    EnforcePatternOccurence
+    EnforcePatternOccurrence
     EnforceRegionsCompatibility
     EnforceSequence
     EnforceTranslation
@@ -99,10 +99,10 @@ EnforceGCContent
 
 .. autoclass:: EnforceGCContent
 
-EnforcePatternOccurence
-+++++++++++++++++++++++
+EnforcePatternOccurrence
+++++++++++++++++++++++++
 
-.. autoclass:: EnforcePatternOccurence
+.. autoclass:: EnforcePatternOccurrence
 
 EnforceRegionsCompatibility
 +++++++++++++++++++++++++++

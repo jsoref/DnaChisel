@@ -136,7 +136,7 @@ def annotate_differences(record, reference, feature_type="misc_feature", prefix=
 def annotate_pattern_occurrences(
     record, pattern, feature_type="misc_feature", prefix="!"
 ):
-    """Return a new record annotated w. all occurences of pattern in sequence.
+    """Return a new record annotated w. all occurrences of pattern in sequence.
 
     Parameters
     -----------

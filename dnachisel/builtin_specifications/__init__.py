@@ -14,7 +14,7 @@ from .EnforceChoice import EnforceChoice
 from .EnforceSequence import EnforceSequence
 from .EnforceGCContent import EnforceGCContent
 from .EnforceMeltingTemperature import EnforceMeltingTemperature
-from .EnforcePatternOccurence import EnforcePatternOccurence
+from .EnforcePatternOccurrence import EnforcePatternOccurrence
 from .EnforceTranslation import EnforceTranslation
 from .EnforceRegionsCompatibility import EnforceRegionsCompatibility
 from .EnforceTerminalGCContent import EnforceTerminalGCContent
@@ -39,7 +39,7 @@ DEFAULT_SPECIFICATIONS_DICT = {
     "AvoidPattern": AvoidPattern,
     "CodonOptimize": CodonOptimize,
     "EnforceGCContent": EnforceGCContent,
-    "EnforcePatternOccurence": EnforcePatternOccurence,
+    "EnforcePatternOccurrence": EnforcePatternOccurrence,
     "EnforceTranslation": EnforceTranslation,
     "EnforceRegionsCompatibility": EnforceRegionsCompatibility,
     "EnforceSequence": EnforceSequence,
@@ -71,7 +71,7 @@ __all__ = [
     "EnforceSequence",
     "EnforceGCContent",
     "EnforceMeltingTemperature",
-    "EnforcePatternOccurence",
+    "EnforcePatternOccurrence",
     "EnforceTranslation",
     "EnforceRegionsCompatibility",
     "EnforceTerminalGCContent",

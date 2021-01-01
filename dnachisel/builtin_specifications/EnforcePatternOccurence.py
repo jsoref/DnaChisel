@@ -13,11 +13,11 @@ from ..Specification import Specification, SpecEvaluation
 from .EnforceSequence import EnforceSequence
 
 
-class EnforcePatternOccurence(Specification):
-    """Enforce a number of occurences of the given pattern in the sequence.
+class EnforcePatternOccurrence(Specification):
+    """Enforce a number of occurrences of the given pattern in the sequence.
 
     Shorthand for annotations: "insert" (although this specification can be
-    used to both insert new occurences of a pattern, or destroy surnumerary
+    used to both insert new occurrences of a pattern, or destroy surnumerary
     patterns)
 
     Parameters
@@ -26,8 +26,8 @@ class EnforcePatternOccurence(Specification):
       A SequencePattern or DnaNotationPattern or a string such as "AATTG",
       "BsmBI_site", etc.
 
-    occurences
-      Desired number of occurences of the pattern.
+    occurrences
+      Desired number of occurrences of the pattern.
 
     location
       Location of the DNA segment on which to enforce the pattern e.g.
@@ -44,7 +44,7 @@ class EnforcePatternOccurence(Specification):
       the pattern could be on both strands (otherwise, only the
       feature's strand will be considered).
       (2) if you want to create a specification without preset location, but
-      with a set strand: ``EnforcePatternOccurence('BsmBI_site', strand=1)``
+      with a set strand: ``EnforcePatternOccurrence('BsmBI_site', strand=1)``
     """
 
     best_possible_score = 0
@@ -54,7 +54,7 @@ class EnforcePatternOccurence(Specification):
     def __init__(
         self,
         pattern=None,
-        occurences=1,
+        occurrences=1,
         location=None,
         strand="from_location",
         center=True,
@@ -72,7 +72,7 @@ class EnforcePatternOccurence(Specification):
                 raise ValueError("unknown strand: %s" % strand)
             self.location.strand = strand
         self.strand = strand
-        self.occurences = occurences
+        self.occurrences = occurrences
         self.center = center
         self.boost = boost
 
@@ -80,20 +80,20 @@ class EnforcePatternOccurence(Specification):
         return self._copy_with_full_span_if_no_location(problem)
 
     def evaluate(self, problem):
-        """Score the difference between expected and observed n_occurences."""
+        """Score the difference between expected and observed n_occurrences."""
         matches = self.pattern.find_matches(problem.sequence, self.location,)
-        score = -abs(len(matches) - self.occurences)
+        score = -abs(len(matches) - self.occurrences)
 
         if score == 0:
             message = "Passed. Pattern found at positions %s" % matches
         else:
-            if self.occurences == 0:
+            if self.occurrences == 0:
                 message = "Failed. Pattern not found."
             else:
                 message = (
                     "Failed. Pattern found %d times instead of %d"
                     " wanted, at locations %s"
-                ) % (len(matches), self.occurences, matches)
+                ) % (len(matches), self.occurrences, matches)
         return SpecEvaluation(
             self,
             problem,
@@ -115,7 +115,7 @@ class EnforcePatternOccurence(Specification):
     def insert_pattern_in_problem(self, problem, reverse=False):
         """Insert the pattern in the problem's sequence by successive tries.
 
-        This heuristic is attempted to get the number of occurences in the
+        This heuristic is attempted to get the number of occurrences in the
         pattern from 0 to some number
         """
         sequence_to_insert = self.pattern.sequence
@@ -168,21 +168,21 @@ class EnforcePatternOccurence(Specification):
             if evaluation.passes:
                 return
             n_matches = len(evaluation.data["matches"])
-            if n_matches < self.occurences:
+            if n_matches < self.occurrences:
                 other_constraints = [
                     c for c in problem.constraints if c is not self
                 ]
                 new_problem = problem
-                for i in range(self.occurences - n_matches):
-                    new_occurence_cst = self.copy_with_changes(
-                        occurences=n_matches + i + 1
+                for i in range(self.occurrences - n_matches):
+                    new_occurrence_cst = self.copy_with_changes(
+                        occurrences=n_matches + i + 1
                     )
                     new_problem = DnaOptimizationProblem(
                         sequence=new_problem.sequence,
-                        constraints=other_constraints + [new_occurence_cst],
+                        constraints=other_constraints + [new_occurrence_cst],
                         mutation_space=problem.mutation_space,
                     )
-                    new_occurence_cst.insert_pattern_in_problem(new_problem)
+                    new_occurrence_cst.insert_pattern_in_problem(new_problem)
                 problem.sequence = new_problem.sequence
                 return
         problem.resolve_constraints_locally()  # default resolution method
@@ -193,6 +193,6 @@ class EnforcePatternOccurence(Specification):
         #                 if hasattr(self.pattern, 'sequence')
         #                 else str(self.pattern))]
         result = [str(self.pattern)]
-        if self.occurences != 1:
-            result += ["occurence", str(self.occurences)]
+        if self.occurrences != 1:
+            result += ["occurrence", str(self.occurrences)]
         return result
