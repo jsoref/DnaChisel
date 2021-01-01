@@ -1,0 +1,11 @@
+^\.github/
+\.csv$
+ignore$
+\.gb$
+\.gbk$
+\.gif$
+\.pdf$
+\.png$
+\.svg$
+\.xlsx$
+\.zip$
